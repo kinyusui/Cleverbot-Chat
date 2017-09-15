@@ -1,0 +1,21 @@
+{
+  "name": "hrnyc10-mvp",
+  "version": "1.0.0",
+  "description": "Project Name",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kinyusui/hrnyc10-mvp.git"
+  },
+  "author": "Kai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kinyusui/hrnyc10-mvp/issues"
+  },
+  "homepage": "https://github.com/kinyusui/hrnyc10-mvp#readme",
+  "Dependencies": {} 
+}
