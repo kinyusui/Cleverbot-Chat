@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/kinyusui/hrnyc10-mvp#readme",
   "dependencies": {
+    "body-parser": "^1.18.1",
     "express": "^4.15.4",
-    "mongoose": "^4.11.11"
+    "mongoose": "^4.11.11",
+    "request": "^2.81.0"
   }
 }

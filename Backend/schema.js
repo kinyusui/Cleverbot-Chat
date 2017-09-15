@@ -8,6 +8,10 @@ var chatSchema = new Schema({
 
 var chat = mongoose.model('chat', chatSchema);
 
+var save = (username, message) => {
+  
+}
 //chat.create will input it into w.e server it is;
 module.exports.Schema = chatSchema;
 module.exports.model = chat;
+module.exports.save = save;
