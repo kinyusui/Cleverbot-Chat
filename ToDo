@@ -15,4 +15,7 @@ Design:
 above will be the chat history;
 will have input field for typing in your dialogue;
 
+figure out how to package.json with required modules;
 figure out plan for app
+
+incorporate https://api.github.com/zen;
