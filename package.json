@@ -4,8 +4,9 @@
   "description": "Project Name",
   "main": "app.js",
   "scripts": {
+    "compile": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon --inspect server.js"
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,10 @@
     "body-parser": "^1.18.1",
     "express": "^4.15.4",
     "mongoose": "^4.11.11",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
     "request": "^2.81.0",
-    "webpack": "^3.6.0"
+    "webpack": "^3.6.0",
+    "webpack-dev-middleware": "^1.12.0"
   }
 }

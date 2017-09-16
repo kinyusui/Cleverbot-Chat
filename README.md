@@ -1,3 +1,22 @@
+Setup
+---
+ 
+```
+npm install
+```
+ 
+ 
+ 
+Compile
+---
+ 
+```
+npm run compile
+```
+
+
+
+
 # hrnyc10-mvp
 Project Name
 
