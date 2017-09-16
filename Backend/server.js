@@ -18,10 +18,14 @@ app.use(webpackDevMiddleware(compiler, {
   },
   historyApiFallback: true,
 }));
+app.set('port', (process.env.PORT || 3000));
+
+
 app.use('/ChatBot', bodyparser.json());
 app.use('/', router);
- 
-const server = app.listen(3000);
+
+
+const server = app.listen(app.get('port'));
 
 
 // const express = require('express');
