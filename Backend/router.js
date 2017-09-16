@@ -16,7 +16,16 @@ router.use(function(req, res, next) {
 
 router.get('/ChatBot', function(req, res) {
   //get from mongoose database
-  res.status(200).send(`Oi mate good job getting that shit mate`);
+  schema.model.find({})
+  .then(function(messages) {
+    let formatted = messages.map((obj) => {
+      return ['User: ' + obj.user, 'Cleverbot: ' + obj.cleverbot];
+    })
+    res.send(formatted);
+  });   //note to self don't forget to use find({}) not 
+  //find() and use promises to get the data, otherwise you can't get it
+
+  //res.status(200).send(`Oi mate good job getting that shit mate`);
 })
 
 // let option = {                       //refactor to use option when you have time
@@ -40,10 +49,11 @@ function requestwithcb (input,cb) {
 router.post('/ChatBot', function(req, res) {
 
   let input = req.body.message;
-  console.log(req);
+  //console.log(req);
   requestwithcb(input,function(botres){
     let data = JSON.parse(botres.body);
-    console.log(data.input,'NEXT IS OUTPUT',data.output);
+    //console.log(data.input,'NEXT IS OUTPUT',data.output);
+    schema.save(data);
     res.status(res.statusCode).send(`BAHAHA you even got the post, good going lad`)    
   })
 })
