@@ -13,7 +13,11 @@ class Form extends React.Component {
     this.handlemessage.bind(this);
     this.onSubmit.bind(this);
   }
-
+  handlereply (reply) {
+    this.setState({
+      reply: reply
+    })
+  }
   handlemessage (event) {
     this.setState({
       message: event.target.value
@@ -23,24 +27,26 @@ class Form extends React.Component {
     event.preventDefault();
     var obj = {message: this.state.message}
     axios.post('/ChatBot',obj)
-    .then(function(result) {
-      console.log(`posted my dude`, result);
+    .then((result) => {
+      //console.log(`posted my dude`, result);
       axios.get('/ChatBot')
-      .then(function(result) {
+      .then((result) => {
         var data = result.data;
-        console.log(`this is the get`, data[data.length-1][1].substring(10));
+        var cleverbotreply = data[data.length-1][1].substring(10);
+        //console.log(`this is the get`, cleverbotreply);
         this.setState({
-          reply: data[data.length-1][1].substring(10)
-        })
+          reply: cleverbotreply
+        });
       })
     })
   }
+
   render() {
     return (
       <div className='outer'> 
         <div className='cleverbot'>Cleverbot Replies: {this.state.reply}</div>
         <form onSubmit={this.onSubmit.bind(this)}>
-          User says: <input type="text" name="message" value={this.state.message} onChange={this.handlemessage.bind(this)}/>
+          User says: <input className="onlyInput" type="text" name="message" value={this.state.message} onChange={this.handlemessage.bind(this)}/>
           <input type="submit" value="Submit"/>
         </form>
       </div>
@@ -49,7 +55,7 @@ class Form extends React.Component {
 }
 export default Form;
 
-
+//axios.post().then(function(result){}.bind(this)); would probably not work
       // <form action="/ChatBot">
       //   First name: <input type="text" value="Mickey">
       //   Last name: <input type="text" name="lastname" value="Mouse">
