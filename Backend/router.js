@@ -1,7 +1,12 @@
 const express = require('express');
 const db = require('./database.js');
 const schema = require('./schema.js');
-const key = require('./config.js');
+let key;
+if (process.env.APIKEY) {
+  key = process.env.APIKEY;
+} else {
+  key = require('./config.js');
+}
 //const bodyparser = require('body-parser');
 const request = require('request');
 const router = express.Router();
